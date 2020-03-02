@@ -6,9 +6,9 @@ $(window).on("scroll", function() {
     }
 });
 
-// Burger Handler
-
 $(document).ready(function() {
+
+    // Burger Handler
     $(".burger").click(function() {
         $(".header_nav").addClass("header_nav_active");
     });
@@ -24,17 +24,14 @@ $(document).ready(function() {
             })
         })
     }
+
+
     // Smooth Scroll
+    $('.js-scroll').click(function() {
+        const headerElHeight = $('.header').innerHeight();
+        let target = $(this).attr('href');
+        let destination = $(target).offset().top - headerElHeight;
 
-    (function() {
-        $('.js-scroll').click(function() {
-            const headerElHeight = $('.header').innerHeight();
-            let target = $(this).attr('href');
-            let destination = $(target).offset().top - headerElHeight;
-
-            $('html').animate({ scrollTop: destination }, 1000);
-        })
-
-
-    }());
+        $('html').animate({ scrollTop: destination }, 1000);
+    })
 })
